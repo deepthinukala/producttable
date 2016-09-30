@@ -5,9 +5,9 @@
 <head><title>Admin</title>
 </head>
 <body>
-  <c:url var="addAction" value="addItem" ></c:url>
+  <c:url var="addAction" value="addsupplier" ></c:url>
 
-<form:form action="${addAction}" modelAttribute="supplier" id="btn-add">
+<form:form action="${addAction}" modelAttribute="supplier" name="btn-add">
    <h3>
                     <c:if test="$(supplier.id==0}">
 		       Add New Item
@@ -23,8 +23,8 @@
 	  <td> Id:</td> <td><form:input  path="id"/></td> 
 	   </c:if>
 	    <tr> <td> Name:</td> <td><form:input  path="name"/></td> 
-	    <tr> <td>Description:</td> <td><form:input path="description"/> </td> 
-	    <tr> <td>Price: </td> <td><form:input path="price"/></td> 
+	    <tr> <td>Address:</td> <td><form:input path="address"/> </td> 
+	    
 		
   
 	    <tr> <td colspan="2">
@@ -43,18 +43,19 @@
 			<tr>
 			 <td> ID </td>
 		        <td> Name </td>
-				 <td> Address </td>
+				 <td> Address</td>
+				 
 				 <td colspan="2"> Action </td>
 	      	</tr>
-    	      <c:forEach var="obj" items="${allData}">
+    	      <c:forEach var="obj" items="${allSupplier}">
 		      <tr>
 		                 <td> <c:out value="${obj.id}"/> </td>
 		                 <td> <c:out value="${obj.name}"/> </td>
-				 
-				 <td> <c:out value="${obj.address}"/> </td>
+				 		<td> <c:out value="${obj.address}"/> </td>
 				
-				 <td> <a href="deleteById/${obj.id}">Delete </a> |
-				     <a href="ItemById/${obj.id}">Edit</a> 
+				
+				 <td> <a href="deleteBysupplier/${obj.id}">Delete </a> |
+				     <a href="ItemBysupplier/${obj.id}">Edit</a> 
 				 </td>
 		      </tr>
 	      </c:forEach>

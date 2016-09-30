@@ -1,8 +1,14 @@
-/*package com.niit.shoppingkart.model;
+package com.niit.shoppingkart.model;
+
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -11,6 +17,7 @@ import org.springframework.stereotype.Component;
 @Table(name="Category")
 @Component
 public class Category {
+	
 	@Id
 	private String id;
 	private String name;
@@ -36,6 +43,6 @@ public class Category {
 	}
 	
 		
-	}*/
+	}
 	
 	

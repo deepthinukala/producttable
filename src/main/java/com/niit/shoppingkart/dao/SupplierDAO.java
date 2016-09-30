@@ -1,4 +1,4 @@
-/*package com.niit.shoppingkart.dao;
+package com.niit.shoppingkart.dao;
 
 import java.util.List;
 
@@ -10,4 +10,4 @@ public interface SupplierDAO {
 	public Supplier get(int id);
 	public List<Supplier> list();
 
-}*/
+}

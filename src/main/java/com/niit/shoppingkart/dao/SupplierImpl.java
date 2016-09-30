@@ -1,7 +1,5 @@
-/*package com.niit.shoppingkart.dao;
-
+package com.niit.shoppingkart.dao;
 import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
@@ -10,8 +8,11 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.shoppingkart.model.Supplier;
+
+
 @Repository
 public class SupplierImpl implements SupplierDAO{
+
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -73,6 +74,8 @@ public class SupplierImpl implements SupplierDAO{
 		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
 		return listSupplier;
 	}
+
 	
 	
-} */
+	
+} 
