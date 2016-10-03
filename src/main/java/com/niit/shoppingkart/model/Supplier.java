@@ -1,13 +1,8 @@
 package com.niit.shoppingkart.model;
 
-import java.util.Set;
-
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -20,9 +15,12 @@ public class Supplier {
 	
 	@Id
 	@GeneratedValue
-	int id;
-	String name;
-	String address;
+	private int id;
+	private String name;
+	private String address;
+	/*@OneToMany(mappedBy="supplier",fetch=FetchType.EAGER)
+	private Set<Product> products;*/
+
 	public int getId() {
 		return id;
 	}
@@ -41,5 +39,11 @@ public class Supplier {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	/*public Set<Product> getProducts() {
+		return products;
+	}
+	public void setProducts(Set<Product> products) {
+		this.products = products;
+	}*/
 	
 }

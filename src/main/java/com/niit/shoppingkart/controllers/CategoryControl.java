@@ -21,7 +21,7 @@ public class CategoryControl {
 	@RequestMapping(value="/Category",method = RequestMethod.GET)
 	public ModelAndView landPage(@ModelAttribute("category")Category item,BindingResult result,Model model)
 	{
-		ModelAndView mv=new ModelAndView("/admin");
+		ModelAndView mv=new ModelAndView("/Category");
 		mv.addObject("userclickedcategory","true");
 		mv.addObject("allInfo",categoryDAO.list());
 		return mv;
