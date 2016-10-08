@@ -40,7 +40,7 @@
       <a class="navbar-brand" href="#"></a></div>
    
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="basic login.html"><span class="glyphicon glyphicon-user"></span> Home</a></li>
+      <li><a href="Home"><span class="glyphicon glyphicon-user"></span> Home</a></li>
       <li><a href="loginname.html"><span class="glyphicon glyphicon-log-in"></span> About US</a></li>
 	 <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
      
@@ -89,6 +89,12 @@
 <c:import url="/WEB-INF/views/Category.jsp"/>
 </c:when>
 </c:choose>
+<c:choose>
+<c:when test="${userclickedhome }">
+<c:import url="/WEB-INF/views/Home.jsp"/>
+</c:when>
+</c:choose>
+
 <div class="gap">
 <div class="container">
   <br>

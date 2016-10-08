@@ -1,10 +1,10 @@
 package com.niit.shoppingkart.config;
 
 import java.util.Properties;
-
-
 import javax.sql.DataSource;
 import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -13,6 +13,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
 import com.niit.shoppingkart.dao.*;
 import com.niit.shoppingkart.model.*;
 
@@ -21,20 +22,21 @@ import com.niit.shoppingkart.model.*;
 @EnableTransactionManagement
 public class ApplicationContextConfig{
 	
+	private static final Logger logger = LoggerFactory.getLogger(ApplicationContextConfig.class);
+
 	
-	
-	@Bean(name = "dataSource")
+	  @Bean(name = "dataSource")
 	public DataSource getDataSource() {
+		logger.debug("Data Source");
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("org.h2.Driver");
 		dataSource.setUrl("jdbc:h2:tcp://localhost/~/test");
 		dataSource.setUsername("sa");
 		dataSource.setPassword("");
-		System.out.println("Datasource");
+		System.out.println("dataSource");
 		return dataSource;
 
 	}
-
 	private Properties getHibernateProperties() {
 		Properties properties = new Properties();
 		properties.put("hibernate.show_sql", "true");
@@ -43,7 +45,6 @@ public class ApplicationContextConfig{
 		properties.put("hbm2ddl.auto", "update");*/
 		System.out.println("Hibernate Properties");
 		return properties;
-
 	}
 
 	@Autowired
@@ -51,9 +52,9 @@ public class ApplicationContextConfig{
 	public SessionFactory getSessionFactory(DataSource dataSource) {
 		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 		sessionBuilder.addProperties(getHibernateProperties());
-		/*sessionBuilder.addAnnotatedClasses(Category.class);*/
+		sessionBuilder.addAnnotatedClasses(Category.class);
 		sessionBuilder.addAnnotatedClasses(Product.class);
-		/*sessionBuilder.addAnnotatedClasses(Supplier.class);*/
+		sessionBuilder.addAnnotatedClasses(Supplier.class);
 		System.out.println("Session");
 		
 		return sessionBuilder.buildSessionFactory();
@@ -67,24 +68,25 @@ public class ApplicationContextConfig{
 		System.out.println("Transaction");
 		return transactionManager;
 	}
-/*
+
 	@Autowired
 	@Bean(name = "categoryDAO")
-	public CategoryDAO getCategorDao(SessionFactory sessionFactory) {
-		return new CategoryDAOImpl(sessionFactory);
+	public CategoryDAO getCategoryDao(SessionFactory sessionFactory) {
+		return new CategoryImpl(sessionFactory);
 	}
-*/	
+
 	@Autowired
 	@Bean(name = "productDAO")
 	public ProductDAO getProductDao(SessionFactory sessionFactory) {
 			return new ProductImpl(sessionFactory);
-	}/*
-	@Autowired
-	@Bean(name = "suppliertDAO")
-	public SupplierDAO getSuppliertDAO(SessionFactory sessionFactory) {
-			return new SupplierDAOImpl(sessionFactory);
 	}
 	@Autowired
+	@Bean(name = "supplierDAO")
+	public SupplierDAO getSupplierDao(SessionFactory sessionFactory) {
+			return new SupplierImpl(sessionFactory);
+	}
+	
+	/*	@Autowired
 	@Bean(name = "userDetailsDAO")
 	public UserDetailsDAO getUserDetailsDAO(SessionFactory sessionFactory) {
 			return new UserDetailsDAOImpl(sessionFactory);
@@ -94,13 +96,4 @@ public class ApplicationContextConfig{
 	public CartDAO getCartDAO(SessionFactory sessionFactory) {
 			return new CartDAOImpl(sessionFactory);
 	}
-	
-	
-	
-	
-	
 	*/    }
-	     
-	   
-	         
-	

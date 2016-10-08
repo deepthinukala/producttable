@@ -1,9 +1,12 @@
 package com.niit.shoppingkart.dao;
 
 import java.util.List;
+
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,6 +16,11 @@ import com.niit.shoppingkart.model.Product;
 
 @Repository
 public class ProductImpl implements ProductDAO{
+	
+	private static final Logger logger = LoggerFactory.getLogger(ProductImpl.class);
+
+	
+	
 	
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -25,9 +33,14 @@ public class ProductImpl implements ProductDAO{
 	@Transactional
 	public boolean saveOrUpdate(Product product){
 		try {
+			logger.debug("Session started");
 			sessionFactory.getCurrentSession().saveOrUpdate(product);
+			
+			logger.debug("Product has been saved:"+product.getId());
 			return true;
 		} catch (Exception e) {
+			logger.error("Operation failed");
+			
 			e.printStackTrace();
 			return false;
 		}
@@ -38,12 +51,15 @@ public class ProductImpl implements ProductDAO{
 	public boolean delete(Product product)
 	    {     
 		try {
+			logger.info("Product deletion started");
 			sessionFactory.getCurrentSession().delete(product);
+			logger.info("Product Id:"+product.getId()+"has been deleted");
+			
 			return true;
 		}
 		 catch (Exception e){
 			e.printStackTrace();
-		
+		logger.error("Delete operation failed");
 		return false;
 		}
 		}

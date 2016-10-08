@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js"></script>
+    
   <style>
    div.gap
   {
@@ -29,9 +31,32 @@ tr:hover{background-color:#f5f5f5}
  th {background-color: black;
     color: white;
     }
+     body{background-image:url("http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=1769775 ");
+    background-repeat: no-repeat;
+    background-position: left bottom;}  
   </Style>
+  <script>
+	var app = angular.module('myApp', []);
+	function MyController($scope, $http) {
+		$scope.sortType = 'name'; // set the default sort type
+		$scope.sortReverse = false; // set the default sort order
+		$scope.search = '';
+		$scope.getDataFromServer = function() {
+			$http({
+				method : 'GET',
+				url : 'suppliergson'
+			}).success(function(data, status, headers, config) {
+				$scope.suppliers = data;// alert(data); 
+			}).error(function(data, status, headers, config) {
+			});
+		};
+	};
+</script>
+ 
 </head>
+
 <body>
+
 <h1><img src="C:\Users\lakshmideepthi\Desktop\my website\logo.png" alt="Test Image" width="200" height="200" style="margin:-60px 0px 0px 5px" align="left"></h1>
     <div class>
     <h1 style="color:black;font-family:algerian;text-align:left;background-color:white">Gleznot World<br><font size="3">Add color to your life!</font>
@@ -42,11 +67,11 @@ tr:hover{background-color:#f5f5f5}
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
     <div class="navbar-header"></div>
-    <ul class="nav navbar-nav navbar-right">
+    <!-- <ul class="nav navbar-nav navbar-right">
       <li><a href="basic login.html"><span class="glyphicon glyphicon-user"></span> Home</a></li>
       <li><a href="loginname.html"><span class="glyphicon glyphicon-log-in"></span> About US</a></li>
 	  <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-     </ul>
+     </ul> -->
      <ul class="nav navbar-nav navbar-left">
        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Contacts</a></li>
      </ul>
@@ -126,6 +151,18 @@ tr:hover{background-color:#f5f5f5}
     </div>
     </div>
     </div>
+    <div class="container" data-ng-app="myApp"
+				data-ng-controller="MyController" data-ng-init="getDataFromServer()"
+				style="overflow: auto; height: 400px; width: 70%">
+				<form>
+					<input
+						class="w3-input w3-animate-input w3-border w3-round w3-small"
+						data-ng-model="search" type="text" placeholder=" Search Supplier"
+						style="width: 20%">
+				</form>
+				<br>
+    
+    
     <div align="center">
 	  <table>   
 			<tr>
@@ -135,21 +172,21 @@ tr:hover{background-color:#f5f5f5}
 				 
 				 <th colspan="2"> Action </th>
 	      	</tr>
-    	      <c:forEach var="obj" items="${allSupplier}">
-		      <tr>
-		                 <td> <c:out value="${obj.id}"/> </td>
-		                 <td> <c:out value="${obj.name}"/> </td>
-				 		<td> <c:out value="${obj.address}"/> </td>
+    	      <%-- <c:forEach var="obj" items="${allSupplier}"> --%>
+		      <tr data-ng-repeat="supplier in suppliers | orderBy:sortType:sortReverse | filter:search">>
+		                 <td>{{supplier.id}} </td>
+		                 <td>{{supplier.name}}</td>
+				 		<td> {{supplier.address}} </td>
 				
 				
-				 <td> <a href="deleteBysupplier/${obj.id}">Delete </a> |
-				     <a href="ItemBysupplier/${obj
-				     .id}">Edit</a> 
+				 <td> <a href="deleteBysupplier/{{supplier.id}}">Delete </a> |
+				     <a href="ItemBysupplier/{{supplier.id}}">Edit</a> 
 				 </td>
 		      </tr>
-	      </c:forEach>
+	     <%--  </c:forEach> --%>
           </table>
           </div> 
+          </div>
  </form:form>
   <script src="${pageContext.request.contextPath}/app-resources/js/lib/jquery-2.2.3.min.js"></script>
   <script src="${pageContext.request.contextPath}/app-resources/js/myapp.js"></script>

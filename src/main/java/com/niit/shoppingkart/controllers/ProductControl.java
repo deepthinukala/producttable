@@ -5,6 +5,7 @@ package com.niit.shoppingkart.controllers;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -16,10 +17,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.google.gson.Gson;
 import com.niit.shoppingkart.dao.CategoryDAO;
 import com.niit.shoppingkart.dao.ProductDAO;
 import com.niit.shoppingkart.dao.SupplierDAO;
@@ -35,6 +38,15 @@ public class ProductControl {
 	@Autowired
 	 SupplierDAO supplierDAO;
 	private Path path;
+	
+	@RequestMapping(value = "/productgson")
+	@ResponseBody
+	public String ProductGson() {
+		List<Product> list = productDAO.list();
+		Gson gson = new Gson();
+		String data = gson.toJson(list);
+		return data;
+	}
 	
 	/*@RequestMapping(value="editproduct")
 	public String editproduct(@ModelAttribute("product") Product product,Model m){

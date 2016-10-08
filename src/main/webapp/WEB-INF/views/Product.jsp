@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <script
+ src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js"></script>
   <style>
    div.gap
   {
@@ -29,7 +31,27 @@ tr:hover{background-color:#f5f5f5}
  th {background-color: black;
     color: white;
     }
+     body{background-image:url("http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=1769775 ");
+    background-repeat: no-repeat;
+    background-position: left bottom;} 
  </style>
+ <script>
+	var app = angular.module('myApp', []);
+	function MyController($scope, $http) {
+		$scope.sortType = 'name'; // set the default sort type
+		$scope.sortReverse = false; // set the default sort order
+		$scope.search = '';
+		$scope.getDataFromServer = function() {
+			$http({
+				method : 'GET',
+				url : 'productgson'
+			}).success(function(data, status, headers, config) {
+				$scope.products = data;// alert(data); 
+			}).error(function(data, status, headers, config) {
+			});
+		};
+	};
+</script>
 </head>
 <body>
 <h1><img src="C:\Users\lakshmideepthi\Desktop\my website\logo.png" alt="Test Image" width="200" height="200" style="margin:-60px 0px 0px 5px" align="left"></h1>
@@ -42,11 +64,11 @@ tr:hover{background-color:#f5f5f5}
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
     <div class="navbar-header"></div>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="basic login.html"><span class="glyphicon glyphicon-user"></span> Home</a></li>
+    <!-- <ul class="nav navbar-nav navbar-right">
+      <li><a href="admin.jsp"><span class="glyphicon glyphicon-user"></span> Home</a></li>
       <li><a href="loginname.html"><span class="glyphicon glyphicon-log-in"></span> About US</a></li>
 	  <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-     </ul>
+     </ul> -->
      <ul class="nav navbar-nav navbar-left">
        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Contacts</a></li>
      </ul>
@@ -166,6 +188,17 @@ tr:hover{background-color:#f5f5f5}
     </div>
     </div>
     </div>
+    <div class="container" data-ng-app="myApp"
+				data-ng-controller="MyController" data-ng-init="getDataFromServer()"
+				style="overflow: auto; height: 400px; width: 70%">
+				<form>
+					<input
+						class="w3-input w3-animate-input w3-border w3-round w3-small"
+						data-ng-model="search" type="text" placeholder=" Search Product"
+						style="width: 20%">
+
+				</form>
+    
 	 <div align="center">
 	  <table>   
 			<tr>
@@ -180,25 +213,26 @@ tr:hover{background-color:#f5f5f5}
 				
 				 <th colspan="2"> Action </th>
 	      	</tr>
-    	      <c:forEach var="obj" items="${allData}">
-		      <tr>
-		                 <td> <c:out value="${obj.id}"/> </td>
-		                 <td> <c:out value="${obj.name}"/> </td>
-				 <td> <c:out value="${obj.description}"/> </td>
-				 <td> <c:out value="${obj.categoryid}"/> </td>
-				 <td> <c:out value="${obj.supplierid}"/> </td>
-				 <td> <c:out value="${obj.price}"/> </td>
+    	    <%--   <c:forEach var="obj" items="${allData}"> --%>
+		      <tr data-ng-repeat="product in products | orderBy:sortType:sortReverse | filter:search">
+		                  
+		                 <td> {{product.id}} </td>
+		                 <td> {{product.name}} </td>
+				 <td> {{product.description}} </td>
+				 <td> {{product.categoryid}} </td>
+				 <td> {{product.supplierid}} </td>
+				 <td> {{product.price}} </td>
 				 
 				 <td><div class="thumbnail">
-				<img height="100px" width="100px" alt="${product.id }"src="<c:url value="/resources/images/product/${obj.id}.jpg"></c:url>">
+				<img height="100px" width="100px" alt="{{product.id }}"src="<c:url value="/resources/images/product/{{product.id}}.jpg"></c:url>">
 			         </div> 
 				 
 				
-				 <td> <a href="deleteByproduct/${obj.id}">Delete </a> |
-				     <a href="ItemByproduct/${obj.id}">Edit</a> 
+				 <td> <a href="deleteByproduct/{{product.id}}">Delete </a> |
+				     <a href="ItemByproduct/{{product.id}}">Edit</a> 
 				 </td>
 		      </tr>
-	      </c:forEach>
+	     <%--  </c:forEach> --%>
           </table>
           </div> 
  </form:form>
