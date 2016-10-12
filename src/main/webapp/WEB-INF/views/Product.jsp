@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-   <script
+  <script
  src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js"></script>
   <style>
    div.gap
@@ -35,7 +35,7 @@ tr:hover{background-color:#f5f5f5}
     background-repeat: no-repeat;
     background-position: left bottom;} 
  </style>
- <script>
+  <script>
 	var app = angular.module('myApp', []);
 	function MyController($scope, $http) {
 		$scope.sortType = 'name'; // set the default sort type
@@ -214,7 +214,7 @@ tr:hover{background-color:#f5f5f5}
 				 <th colspan="2"> Action </th>
 	      	</tr>
     	    <%--   <c:forEach var="obj" items="${allData}"> --%>
-		      <tr data-ng-repeat="product in products | orderBy:sortType:sortReverse | filter:search">
+		     <tr data-ng-repeat="product in products | orderBy:sortType:sortReverse | filter:search"> 
 		                  
 		                 <td> {{product.id}} </td>
 		                 <td> {{product.name}} </td>

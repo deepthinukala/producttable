@@ -1,6 +1,7 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,9 +32,9 @@
 <h1><img src="C:\Users\lakshmideepthi\Desktop\my website\logo.png" alt="Test Image" width="200" height="200" style="margin:-60px 0px 0px 5px" align="left"></h1>
 <div class>
   <h1 style="color:black;font-family:algerian;text-align:left;background-color:white">Gleznot World<br><font size="3">Add color to your life!</font>
-  <img src="C:\Users\lakshmideepthi\Desktop\my website\insta.png" alt="Test Image" width="30" height="30" align="right">
-  <img src="C:\Users\lakshmideepthi\Desktop\my website\twitter.png" alt="Test Image" width="35" height="30" align="right">
-  <img src="C:\Users\lakshmideepthi\Desktop\my website\fb.png" alt="Test Image" width="35" height="30" align="right"></h1>
+  <img src="c:\Users\lakshmideepthi\Desktop\my website\insta.png" alt="Test Image" width="30" height="30" align="right">
+  <img src="c:\Users\lakshmideepthi\Desktop\my website\twitter.png" alt="Test Image" width="35" height="30" align="right">
+  <img src="c:\Users\lakshmideepthi\Desktop\my website\fb.png" alt="Test Image" width="35" height="30" align="right"></h1>
   
 </div>
 
@@ -109,7 +110,7 @@
       </div>
     
       <div class="item">
-        <img src="C:\Users\lakshmideepthi\Desktop\my website\pic3.jpg" alt="Flower" width="560" height="150">
+        <img src="c:\Users\lakshmideepthi\Desktop\my website\pic3.jpg" alt="Flower" width="560" height="150">
       </div>
 	  <div class="item">
         <img src="C:\Users\lakshmideepthi\Desktop\my website\pic4.jpg" alt="Flower" width="560" height="150">
@@ -130,29 +131,23 @@
 </div>
  <br>
  
-	<c:forEach items="${allData}" var="product">
-  
-  <!-- <div class="row"> -->
-   <!--   <div class="col-xs-3">  -->
+	
+   <c:forEach items="${allData}" var="product">
+  <!--  <div class="row"> -->
+     <div class="col-xs-3" class="thumbnail">
        
-      <a href="ShowProduct/${product.id}"  class="thumbnail"> <img height="200px"
-       width="200px" alt="${product.id }"
-       src="<c:url value="/resources/images/product/${product.id }.jpg"></c:url>"></a>
-      <div class="desc">
-          <c:out value="/${product.id}" />
-          <c:out value="${product.name }"></c:out>
-          <c:out value="${product.price }"></c:out>
+ <a href="ShowProduct/${product.id}" > <img height="250px" width="250px" alt="${product.id }"
+ src="<c:url value="/resources/images/product/${product.id }.jpg"></c:url>"></a>
+  <div class="desc">
+         Product Id : <c:out value="${product.id}" /><br>
+         Product Name : <c:out value="${product.name }"/>
    <c:url var="action" value="addtocart/${product.id}"></c:url>
    <form:form action="${action}" commandName="cart">
    <input type="submit" class="btn btn-primary" value="Add To Cart" />
-   
    </form:form>
-   
-   </div>
-   <!-- </div> -->
-   
-   <!-- </div>  -->
-   </c:forEach>		
+       </div>
+       </div> 
+       </c:forEach>	
 		<c:choose>
 		<c:when test="${Clickedshowproduct}">
 			<c:import url="/WEB-INF/view/ShowProduct.jsp"></c:import>
