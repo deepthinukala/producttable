@@ -34,14 +34,15 @@ public String homepage(Model m){
 public String ShowProduct(@PathVariable("id") int id,RedirectAttributes attributes,Model m) {
 m.addAttribute("Clickedshowproduct", "true");
 	m.addAttribute("IndividualProduct", productDAO.getproduct(id));
-	return "IndividualProduct";
+	/*m.addAttribute("allData",productDAO.list());*/
+	return "ShowProduct";
 }
 	
-/*@RequestMapping(value="navproduct/{id}")
+@RequestMapping(value="navproduct/{id}")
 public String navproduct(Model m,@PathVariable("id") int id ){
 
 	m.addAttribute("Clickedcatproduct", "true");
 	m.addAttribute("navproducts", productDAO.navproduct(id));
 	return "catproducts";
-}*/
+}
 }

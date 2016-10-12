@@ -1,10 +1,11 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
   <title>Bootstrap Case</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -60,17 +61,16 @@
         <input type="text" class="form-control" placeholder="Search">
     <button type="submit" class="btn btn-default">Submit</button>
 	</div>
-	<!-- <li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#"><span
-					class="glyphicon glyphicon-th" align="right"></span></a>
-				<ul class="dropdown-menu">
-				
-					<li> -->
+	
 						
-			<li class="dropdown"><a class="dropdown-toggle"
+			<!-- <li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"><span
 					class="glyphicon glyphicon-th" align="right"></span></a>
-				<ul class="dropdown-menu">
+				<ul class="dropdown-menu"> -->
+	<div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">click here
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
 				
 					<li>
 						<c:forEach items="${allInfo}" var="category">
@@ -80,8 +80,8 @@
 						
 					</c:forEach>
 				</li>
-				</ul></li>
-	
+				</ul>
+	</div>
 	</form>
 	</nav>
   
@@ -147,17 +147,12 @@
    </form:form>
        </div>
        </div> 
-       </c:forEach>	
-		<c:choose>
-		<c:when test="${Clickedshowproduct}">
-			<c:import url="/WEB-INF/view/ShowProduct.jsp"></c:import>
-		</c:when>
-	</c:choose>
+      
 	
 		
-	<!-- <div ng-view></div>
+	<div ng-view></div>
 
-	<script>
+	 <script>
 		$(document).ready(function() {
 			$('.dropdown a.test').on("click", function(e) {
 				$(this).next('ul').toggle();
@@ -165,7 +160,20 @@
 				e.preventDefault();
 			});
 		});
-	</script> -->
+	</script>  
+	
+	
+	
+	
+</c:forEach>	
+<c:choose>
+<c:when test="${Clickedshowproduct}">
+<c:import url="/WEB-INF/view/ShowProduct.jsp"></c:import>
+</c:when></c:choose>
+<c:choose>
+<c:when test="${Clickedcatproduct}">
+<c:import url="/WEB-INF/view/catproducts.jsp"></c:import>
+</c:when></c:choose>
 </body>
 </html>
     

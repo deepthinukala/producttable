@@ -1,14 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
-<title>Bootstrap Case</title>
+  <title>Bootstrap Case</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -37,7 +36,7 @@
       <a class="navbar-brand" href="#"></a></div>
    
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="basic login.html"><span class="glyphicon glyphicon-user"></span> Home</a></li>
+      <li><a href="Home"><span class="glyphicon glyphicon-user"></span> Home</a></li>
       <li><a href="loginname.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 	  <li><a href="registername"><span class="glyphicon glyphicon-log-in"></span> Register</a></li>
       <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> AboutUs</a></li>
@@ -54,9 +53,14 @@
     <button type="submit" class="btn btn-default">Submit</button>
 	</div>
 	
+						
+			<!--  <li class="dropdown"><a class="dropdown-toggle"
+				data-toggle="dropdown" href="#"><span
+					class="glyphicon glyphicon-th" align="right"></span></a>
+				<ul class="dropdown-menu"> -->
 	<%-- <div class="dropdown">
     <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">click here
-    <span class="caret"></span></button>
+    <span class="caret"></span></button> 
     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
 				
 					<li>
@@ -66,28 +70,31 @@
 							<br>
 						
 					</c:forEach>
-                    </li>
-	                </ul>
-	                </div> --%>
+				</li>
+				</ul>
+	</div> --%>
 	</form>
 	</nav>
 
 
-<c:forEach items="${IndividualProduct}" var="product">
-			<div class="col-xs-3 ">
-				<div class="img"><a href="IndividualItem/${product.id}"></a>
-
+<c:forEach items="${navproducts}" var="product">
 <h4>ProductName: <c:out value="${product.name }"/></h4>
 <div class="thumbnail">
-<a href="ShowProduct/${product.id}" > <img height="250px" width="250px" alt="${product.id }"
- src="<c:url value="/resources/images/product/${product.id }.jpg"></c:url>"></a>
-		</div>
-		<div align="centre">
-		ProductDescription: <c:out value="${product.description}"/><br>
-		ProductPrice: <c:out value="${product.price }"/><br>
-				</div>
-				</div>
-				</div>
+<%-- <img height="300px" width="300px" alt="${product.id }"
+				src="<c:url value="/resources/images/product${product.id }.jpg"></c:url>"> --%>
+
+  <a href="ShowProduct/${product.id}" > <img height="250px" width="250px" alt="${product.id }"
+  src="<c:url value="/resources/images/product/${product.id }.jpg"></c:url>"></a>
+</div>
+<div align="centre">
+ ProductDescription: <c:out value="${product.description}"/><br>
+ ProductPrice: <c:out value="${product.price }"/><br>
+</div>
 </c:forEach>
+
+
 </body>
 </html>
+
+
+
