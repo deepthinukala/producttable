@@ -13,11 +13,11 @@
   <style>
   .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
-      width: 70%;
+     width: 100%;
       margin-top: 0px;
     margin-bottom: 0px;
-	margin-right: 150px;
-    margin-left: 150px;
+	margin-right: -60px;
+    margin-left: 0px;
 	  
 }
   
@@ -28,12 +28,12 @@
   </style>
 </head>
 <body>
-<h1><img src="logo.png" alt="Test Image" width="200" height="200" style="margin:-60px 0px 0px 5px" align="left"></h1>
+<h1><img src="C:\Users\lakshmideepthi\Desktop\my website\logo.png" alt="Test Image" width="200" height="200" style="margin:-60px 0px 0px 5px" align="left"></h1>
 <div class>
   <h1 style="color:black;font-family:algerian;text-align:left;background-color:white">Gleznot World<br><font size="3">Add color to your life!</font>
-  <img src="insta.png" alt="Test Image" width="30" height="30" align="right">
-  <img src="twitter.png" alt="Test Image" width="35" height="30" align="right">
-  <img src="fb.png" alt="Test Image" width="35" height="30" align="right"></h1>
+  <img src="C:\Users\lakshmideepthi\Desktop\my website\insta.png" alt="Test Image" width="30" height="30" align="right">
+  <img src="C:\Users\lakshmideepthi\Desktop\my website\twitter.png" alt="Test Image" width="35" height="30" align="right">
+  <img src="C:\Users\lakshmideepthi\Desktop\my website\fb.png" alt="Test Image" width="35" height="30" align="right"></h1>
   
 </div>
 
@@ -59,15 +59,28 @@
         <input type="text" class="form-control" placeholder="Search">
     <button type="submit" class="btn btn-default">Submit</button>
 	</div>
-	<div class="dropdown">
-    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">click here
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Wall Paints</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Nail Paints</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Art paints</a></li> 
-      </ul>
-  </div>
+	<!-- <li class="dropdown"><a class="dropdown-toggle"
+				data-toggle="dropdown" href="#"><span
+					class="glyphicon glyphicon-th" align="right"></span></a>
+				<ul class="dropdown-menu">
+				
+					<li> -->
+						
+			<li class="dropdown"><a class="dropdown-toggle"
+				data-toggle="dropdown" href="#"><span
+					class="glyphicon glyphicon-th" align="right"></span></a>
+				<ul class="dropdown-menu">
+				
+					<li>
+						<c:forEach items="${allInfo}" var="category">
+				<a href="navproduct/${category.id }"><c:out value="${category.name}" /><span
+								class="glyphicon glyphicon-menu-right"></span></a>
+							<br>
+						
+					</c:forEach>
+				</li>
+				</ul></li>
+	
 	</form>
 	</nav>
   
@@ -88,18 +101,18 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="pic1.jpg" alt="Chania" width="560" height="345">
+        <img src="C:\Users\lakshmideepthi\Desktop\my website\pic1.jpg" alt="Chania" width="560" height="345">
       </div>
 
       <div class="item">
-        <img src="pic2.jpg" alt="Chania" width="560" height="150">
+        <img src="C:\Users\lakshmideepthi\Desktop\my website\pic2.jpg" alt="Chania" width="560" height="150">
       </div>
     
       <div class="item">
-        <img src="pic3.jpg" alt="Flower" width="560" height="150">
+        <img src="C:\Users\lakshmideepthi\Desktop\my website\pic3.jpg" alt="Flower" width="560" height="150">
       </div>
 	  <div class="item">
-        <img src="pic4.jpg" alt="Flower" width="560" height="150">
+        <img src="C:\Users\lakshmideepthi\Desktop\my website\pic4.jpg" alt="Flower" width="560" height="150">
       </div>
       </div>
 
@@ -117,34 +130,47 @@
 </div>
  <br>
  
-	 <c:forEach items="${allProduct}" var="product">
-	 <div class="responsive">
-	 <div class="img">
- 		
- 		
- 		  <!-- <div class="thumbnail">-->
- 			 <div class="col-md-4">
-						<a href="ShowProduct/${product.id}"> <img height="200px"
-							width="200px" alt="${product.id }"
-							src="<c:url value="/resources/images/${product.id }.jpg"></c:url>"></a>
- 	       
- 	        <div class="desc">
-         	<c:out value="${product.name}" />
-         	<sec:authorize access="isAuthenticated()">
-			<c:url var="action" value="addtocart/${product.id}"></c:url>
-			<form:form action="${action}" commandName="cart">
-			<input type="submit" class="btn btn-primary" value="Add To Cart" />
-			
-			</form:form>
-			</sec:authorize>
-			</div>
-			</div>
-			</div>
-			</div>
-			</c:forEach>
-			<div ng-view></div>
-			$IndividualProduct
+	<c:forEach items="${allData}" var="product">
+  
+  <!-- <div class="row"> -->
+   <!--   <div class="col-xs-3">  -->
+       
+      <a href="ShowProduct/${product.id}"  class="thumbnail"> <img height="200px"
+       width="200px" alt="${product.id }"
+       src="<c:url value="/resources/images/product/${product.id }.jpg"></c:url>"></a>
+      <div class="desc">
+          <c:out value="/${product.id}" />
+          <c:out value="${product.name }"></c:out>
+          <c:out value="${product.price }"></c:out>
+   <c:url var="action" value="addtocart/${product.id}"></c:url>
+   <form:form action="${action}" commandName="cart">
+   <input type="submit" class="btn btn-primary" value="Add To Cart" />
+   
+   </form:form>
+   
+   </div>
+   <!-- </div> -->
+   
+   <!-- </div>  -->
+   </c:forEach>		
+		<c:choose>
+		<c:when test="${Clickedshowproduct}">
+			<c:import url="/WEB-INF/view/ShowProduct.jsp"></c:import>
+		</c:when>
+	</c:choose>
+	
+		
+	<!-- <div ng-view></div>
 
+	<script>
+		$(document).ready(function() {
+			$('.dropdown a.test').on("click", function(e) {
+				$(this).next('ul').toggle();
+				e.stopPropagation();
+				e.preventDefault();
+			});
+		});
+	</script> -->
 </body>
 </html>
     

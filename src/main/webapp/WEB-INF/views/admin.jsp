@@ -10,11 +10,11 @@
   <style>
   .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
-      width: 70%;
+      width: 100%;
       margin-top: 0px;
     margin-bottom: 0px;
-	margin-right: 150px;
-    margin-left: 150px;
+	margin-right: -60px;
+    margin-left: 0px;
 	  
 }
   
