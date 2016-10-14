@@ -45,9 +45,9 @@
       <a class="navbar-brand" href="#"></a></div>
    
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="basic login.html"><span class="glyphicon glyphicon-user"></span> Home</a></li>
-      <li><a href="loginname.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-	  <li><a href="registername"><span class="glyphicon glyphicon-log-in"></span> Register</a></li>
+      <li><a href="Home"><span class="glyphicon glyphicon-user"></span> Home</a></li>
+      <li><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	  <li><a href="Registration"><span class="glyphicon glyphicon-log-in"></span> Registration</a></li>
       <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> AboutUs</a></li>
      
     </ul>
@@ -170,16 +170,34 @@
 	
 <c:choose>
 <c:when test="${Clickedshowproduct}">
-<c:import url="/WEB-INF/view/ShowProduct.jsp"></c:import>
+<c:import url="/WEB-INF/views/ShowProduct.jsp"></c:import>
 </c:when></c:choose>
 <c:choose>
 <c:when test="${Clickedcatproduct}">
-<c:import url="/WEB-INF/view/catproducts.jsp"></c:import>
+<c:import url="/WEB-INF/views/catproducts.jsp"></c:import>
 </c:when></c:choose>
 <c:choose>
 	<c:when test="${UserClickedCart}">
-	<c:import url="/WEB-INF/view/Cart1.jsp"></c:import>
+	<c:import url="/WEB-INF/views/Cart1.jsp"></c:import>
 	</c:when></c:choose>
+	<c:choose>
+<c:when test="${UserClickedlogin}">
+<c:import url="/WEB-INF/views/Login.jsp"></c:import>
+</c:when>
+</c:choose> 
+<c:choose>
+<c:when test="${UserClickedregister}">
+<c:import url="/WEB-INF/views/Registration.jsp"></c:import>
+</c:when>
+</c:choose>  
+  
+<%-- <c:choose>
+		<c:when test="${!Administrator}">
+			<c:if test="${empty HideOthers}">
+			</c:if>
+			</c:when>
+			</c:choose> --%>
+<div class="container">
 </body>
 </html>
     

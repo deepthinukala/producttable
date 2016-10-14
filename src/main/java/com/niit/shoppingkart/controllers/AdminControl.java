@@ -9,7 +9,7 @@ public class AdminControl {
 	@RequestMapping(value="/")
 	public String init(Model model){
 		model.addAttribute("msg","Welcome Deepthi");
-		return "admin";
+		return "Home";
 		
 	}
 	
