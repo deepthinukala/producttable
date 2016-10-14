@@ -1,6 +1,21 @@
-/*package com.niit.shoppingkart.dao;
+package com.niit.shoppingkart.dao;
+
+import java.util.List;
+
+import com.niit.shoppingkart.model.Cart;
 
 public interface CartDAO {
-
+    public List<Cart> list();
+    public boolean save(Cart cart);
+	public boolean update(Cart cart); 
+	public boolean delete(Cart cart);
+	
+	public Cart get(int id);
+	
+	public Cart getproduct(int id);
+	/*public double CartPrice(int userid);
+	public long cartsize(int userid);*/
+	
+	
+	
 }
-*/

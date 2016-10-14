@@ -141,12 +141,13 @@
   <div class="desc">
          Product Id : <c:out value="${product.id}" /><br>
          Product Name : <c:out value="${product.name }"/>
-   <c:url var="action" value="addtocart/${product.id}"></c:url>
-   <form:form action="${action}" commandName="cart">
+   <c:url var="Addaction" value="addtocart/${product.id}"></c:url>
+   <form:form action="${Addaction}" commandName="cart">
    <input type="submit" class="btn btn-primary" value="Add To Cart" />
    </form:form>
        </div>
        </div> 
+      
       
 	
 		
@@ -165,7 +166,8 @@
 	
 	
 	
-</c:forEach>	
+</c:forEach>
+	
 <c:choose>
 <c:when test="${Clickedshowproduct}">
 <c:import url="/WEB-INF/view/ShowProduct.jsp"></c:import>
@@ -174,6 +176,10 @@
 <c:when test="${Clickedcatproduct}">
 <c:import url="/WEB-INF/view/catproducts.jsp"></c:import>
 </c:when></c:choose>
+<c:choose>
+	<c:when test="${UserClickedCart}">
+	<c:import url="/WEB-INF/view/Cart1.jsp"></c:import>
+	</c:when></c:choose>
 </body>
 </html>
     

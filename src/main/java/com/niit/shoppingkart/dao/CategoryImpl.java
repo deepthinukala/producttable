@@ -47,6 +47,7 @@ public class CategoryImpl implements CategoryDAO {
 	    {     
 		try {
 			sessionFactory.getCurrentSession().delete(category);
+			logger.debug("Category has been saved:"+category.getId());
 			return true;
 		}
 		 catch (Exception e){

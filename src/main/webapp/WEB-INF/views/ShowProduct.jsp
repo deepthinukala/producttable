@@ -79,8 +79,8 @@
 
 <h4>ProductName: <c:out value="${product.name }"/></h4>
 <div class="thumbnail">
-<a href="ShowProduct/${product.id}" > <img height="250px" width="250px" alt="${product.id }"
- src="<c:url value="/resources/images/product/${product.id }.jpg"></c:url>"></a>
+ <a href="ShowProduct/${product.id}" > --%> <img height="250px" width="250px" alt="${product.id }"
+ src="<c:url value="/resources/images/product/${product.id }.jpg"></c:url>"> </a>
 		</div>
 		<div align="centre">
 		ProductDescription: <c:out value="${product.description}"/><br>
