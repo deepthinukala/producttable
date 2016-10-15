@@ -110,7 +110,16 @@ public class CartImpl implements CartDAO {
 			return listproduct.get(0);
 		}
 	}
+	
 	/*@Transactional
+	public void pay(int userId) {
+		String hql="update Cart set status='P' where userid="+userId;	
+		@SuppressWarnings("rawtypes")
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.executeUpdate();
+	}
+	
+	@Transactional
 	public double CartPrice(int userid) {
 		Criteria c=sessionFactory.getCurrentSession().createCriteria(Cart.class);
 		c.add(Restrictions.eq("userid", userid));

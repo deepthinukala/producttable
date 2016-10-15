@@ -1,4 +1,4 @@
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+ <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
@@ -47,7 +47,7 @@
     <ul class="nav navbar-nav navbar-right">
       <li><a href="Home"><span class="glyphicon glyphicon-user"></span> Home</a></li>
       <li><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-	  <li><a href="Registration"><span class="glyphicon glyphicon-log-in"></span> Registration</a></li>
+      <li><a href="Registration"><span class="glyphicon glyphicon-log-in"></span> Registration</a></li>
       <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> AboutUs</a></li>
      
     </ul>
@@ -55,18 +55,17 @@
   <ul class="nav navbar-nav navbar-left">
 <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Contacts</a></li>
 </ul>
-
-	 <form class="navbar-form navbar-left" role="search">
+  <form class="navbar-form navbar-left" role="search"> 
     <div class="form-group">
         <input type="text" class="form-control" placeholder="Search">
     <button type="submit" class="btn btn-default">Submit</button>
 	</div>
 	
-						
-			<!-- <li class="dropdown"><a class="dropdown-toggle"
+	<!-- <li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"><span
 					class="glyphicon glyphicon-th" align="right"></span></a>
-				<ul class="dropdown-menu"> -->
+	<ul class="dropdown-menu"> -->
+
 	<div class="dropdown">
     <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">click here
     <span class="caret"></span></button>
@@ -81,9 +80,7 @@
 					</c:forEach>
 				</li>
 				</ul>
-	</div>
-	</form>
-	</nav>
+	</div></nav>
   
  <div class="gap">
 <div class="container">
@@ -177,9 +174,9 @@
 <c:import url="/WEB-INF/views/catproducts.jsp"></c:import>
 </c:when></c:choose>
 <c:choose>
-	<c:when test="${UserClickedCart}">
-	<c:import url="/WEB-INF/views/Cart1.jsp"></c:import>
-	</c:when></c:choose>
+<c:when test="${UserClickedCart}">
+<c:import url="/WEB-INF/views/Cart1.jsp"></c:import>
+</c:when></c:choose>
 	<c:choose>
 <c:when test="${UserClickedlogin}">
 <c:import url="/WEB-INF/views/Login.jsp"></c:import>
@@ -197,7 +194,8 @@
 			</c:if>
 			</c:when>
 			</c:choose> --%>
-<div class="container">
+
 </body>
 </html>
+
     

@@ -27,8 +27,7 @@ public String homepage(Model m){
 	m.addAttribute("product",new Product());
 	m.addAttribute("allInfo", categoryDAO.list());
 	m.addAttribute("allData",productDAO.list());
-	
-	return "Home";
+	return "/Home";
 }
 @RequestMapping(value ="ShowProduct/{id}" )
 public String ShowProduct(@PathVariable("id") int id,RedirectAttributes attributes,Model m) {
@@ -45,4 +44,14 @@ public String navproduct(Model m,@PathVariable("id") int id ){
 	m.addAttribute("navproducts", productDAO.navproduct(id));
 	return "catproducts";
 }
+/*@RequestMapping(value={"/userlogin"},method=RequestMethod.GET)
+public String userpage(Model m){
+	m.addAttribute("userclickedhome", "true");
+	m.addAttribute("product",new Product());
+	m.addAttribute("allInfo", categoryDAO.list());
+	m.addAttribute("allData",productDAO.list());
+	
+	return "userlogin";
+}*/
+
 }

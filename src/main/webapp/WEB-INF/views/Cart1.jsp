@@ -56,11 +56,11 @@ document.formID.submit();
    
     <ul class="nav navbar-nav navbar-right">
       <li><a href="basic login.html"><span class="glyphicon glyphicon-user"></span> Home</a></li>
-      <li><a href="loginname.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-	  <li><a href="registername"><span class="glyphicon glyphicon-log-in"></span> Register</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> AboutUs</a></li>
-     
+      <li><a href="loginname.html"><span class="glyphicon glyphicon-log-in"></span> About US</a></li>
+<li><a href=<c:url value="perform_logout"/>>Logout</a></li>
+    
     </ul>
+    
   
   <ul class="nav navbar-nav navbar-left">
 <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Contacts</a></li>

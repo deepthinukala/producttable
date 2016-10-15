@@ -68,4 +68,11 @@ public class Cart implements Serializable {
 		this.productname = productname;
 	}
 	
+	/*private int userid;
+	 private static final long serialVersionUID = 1L;
+	private String cardnumber;
+	private String date;
+	private String cvv;
+	private String method;*/
+	
 }

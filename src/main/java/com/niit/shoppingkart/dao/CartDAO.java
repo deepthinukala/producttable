@@ -2,6 +2,7 @@ package com.niit.shoppingkart.dao;
 
 import java.util.List;
 
+
 import com.niit.shoppingkart.model.Cart;
 
 public interface CartDAO {
@@ -13,7 +14,8 @@ public interface CartDAO {
 	public Cart get(int id);
 	
 	public Cart getproduct(int id);
-	/*public double CartPrice(int userid);
+	/*public void pay(int userid);
+	public double CartPrice(int userid);
 	public long cartsize(int userid);*/
 	
 	

@@ -64,11 +64,11 @@ tr:hover{background-color:#f5f5f5}
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
     <div class="navbar-header"></div>
-    <!-- <ul class="nav navbar-nav navbar-right">
-      <li><a href="admin.jsp"><span class="glyphicon glyphicon-user"></span> Home</a></li>
-      <li><a href="loginname.html"><span class="glyphicon glyphicon-log-in"></span> About US</a></li>
-	  <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-     </ul> -->
+     <ul class="nav navbar-nav navbar-right">
+ <li><a href="admin"><span class="glyphicon glyphicon-user"></span> Home</a></li>
+<li><a href=<c:url value="perform_logout"/>>Logout</a></li>
+     
+    </ul>
      <ul class="nav navbar-nav navbar-left">
        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Contacts</a></li>
      </ul>

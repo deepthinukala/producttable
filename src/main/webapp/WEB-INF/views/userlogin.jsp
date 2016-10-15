@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+ <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +13,17 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
-   div.gap
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+     width: 100%;
+      margin-top: 0px;
+    margin-bottom: 0px;
+	margin-right: -60px;
+    margin-left: 0px;
+	  
+}
+  
+  div.gap
   {
   margin:-35px 0px 0px 20px;
   }
@@ -35,32 +44,29 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="#"></a></div>
    
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="Home"><span class="glyphicon glyphicon-user"></span> Home</a></li>
-      <li><a href="loginname.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-	  <li><a href="registername"><span class="glyphicon glyphicon-log-in"></span> Register</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> AboutUs</a></li>
-     
-    </ul>
+   <ul class="nav navbar-nav navbar-right">
+      <li><a href="basic login.html"><span class="glyphicon glyphicon-user"></span> Home</a></li>
+      <li><a href="loginname.html"><span class="glyphicon glyphicon-log-in"></span> About US</a></li>
+<li><a href=<c:url value="perform_logout"/>>Logout</a></li>
+     </ul>
   
-  <ul class="nav navbar-nav navbar-left">
+ <ul class="nav navbar-nav navbar-left">
 <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Contacts</a></li>
 </ul>
-
-	 <form class="navbar-form navbar-left" role="search">
+  <form class="navbar-form navbar-left" role="search"> 
     <div class="form-group">
         <input type="text" class="form-control" placeholder="Search">
     <button type="submit" class="btn btn-default">Submit</button>
 	</div>
 	
-						
-			<!--  <li class="dropdown"><a class="dropdown-toggle"
+	<!-- <li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"><span
 					class="glyphicon glyphicon-th" align="right"></span></a>
-				<ul class="dropdown-menu"> -->
-	<%-- <div class="dropdown">
+	<ul class="dropdown-menu"> -->
+
+	<div class="dropdown">
     <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">click here
-    <span class="caret"></span></button> 
+    <span class="caret"></span></button>
     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
 				
 					<li>
@@ -72,38 +78,57 @@
 					</c:forEach>
 				</li>
 				</ul>
-	</div> --%>
-	</form>
-	</nav>
+	</div></nav>
 
-
-<c:forEach items="${navproducts}" var="product">
-<h4>ProductName: <c:out value="${product.name }"/></h4>
-<div class="thumbnail">
-<%-- <img height="300px" width="300px" alt="${product.id }"
-				src="<c:url value="/resources/images/product${product.id }.jpg"></c:url>"> --%>
-
-  <a href="ShowProduct/${product.id}" > <img height="250px" width="250px" alt="${product.id }"
-  src="<c:url value="/resources/images/product/${product.id }.jpg"></c:url>"></a>
-</div>
-<div align="centre">
- ProductDescription: <c:out value="${product.description}"/><br>
- ProductPrice: <c:out value="${product.price }"/><br>
-  <c:url var="Addaction" value="addtocart/${product.id}"></c:url>
+	<c:forEach items="${allData}" var="product">
+  <!--  <div class="row"> -->
+     <div class="col-xs-3" class="thumbnail">
+       
+ <a href="ShowProduct/${product.id}" > <img height="250px" width="250px" alt="${product.id }"
+ src="<c:url value="/resources/images/product/${product.id }.jpg"></c:url>"></a>
+  <div class="desc">
+         Product Id : <c:out value="${product.id}" /><br>
+         Product Name : <c:out value="${product.name }"/>
+   <c:url var="Addaction" value="addtocart/${product.id}"></c:url>
    <form:form action="${Addaction}" commandName="cart">
    <input type="submit" class="btn btn-primary" value="Add To Cart" />
    </form:form>
-</div>
-</c:forEach>
+       </div>
+       </div> 
+      
+      
+	
+		
+	<div ng-view></div>
 
+	 <script>
+		$(document).ready(function() {
+			$('.dropdown a.test').on("click", function(e) {
+				$(this).next('ul').toggle();
+				e.stopPropagation();
+				e.preventDefault();
+			});
+		});
+	</script>  
+	
+	
+	
+	
+</c:forEach>
+	
+<c:choose>
+<c:when test="${Clickedshowproduct}">
+<c:import url="/WEB-INF/views/ShowProduct.jsp"></c:import>
+</c:when></c:choose>
+<c:choose>
+<c:when test="${Clickedcatproduct}">
+<c:import url="/WEB-INF/views/catproducts.jsp"></c:import>
+</c:when></c:choose>
 <c:choose>
 <c:when test="${UserClickedCart}">
 <c:import url="/WEB-INF/views/Cart1.jsp"></c:import>
 </c:when></c:choose>
-
-
-</body>
+	
+	</body>
 </html>
-
-
-
+     

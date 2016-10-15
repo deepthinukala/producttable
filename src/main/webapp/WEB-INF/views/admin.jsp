@@ -40,21 +40,15 @@
       <a class="navbar-brand" href="#"></a></div>
    
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="Home"><span class="glyphicon glyphicon-user"></span> Home</a></li>
-      <li><a href="loginname.html"><span class="glyphicon glyphicon-log-in"></span> About US</a></li>
-	 <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+ <li><a href="Home"><span class="glyphicon glyphicon-user"></span> Home</a></li>
+<li><a href="loginname.html"><span class="glyphicon glyphicon-log-in"></span> About US</a></li>
+
      
     </ul>
   
   <ul class="nav navbar-nav navbar-left">
 <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Contacts</a></li>
 </ul>
-	 <form class="navbar-form navbar-left" role="search">
-    <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search">
-    <button type="submit" class="btn btn-default">Submit</button>
-	</div>
-</form>
 </nav>
 
 <div class="gap">
@@ -70,6 +64,7 @@
 <li><a href="Product"><span class="glyphicon glyphicon-log-in"></span> Product</a></li>
 <li><a href="Category"><span class="glyphicon glyphicon-log-in"></span> Category</a></li>
 <li><a href="Supplier"><span class="glyphicon glyphicon-log-in"></span> Supplier</a></li>
+<li><a href=<c:url value="perform_logout"/>>Logout</a></li>
 </ul>
 </div>
 </nav>
