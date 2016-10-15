@@ -186,6 +186,11 @@
 <c:when test="${UserClickedregister}">
 <c:import url="/WEB-INF/views/Registration.jsp"></c:import>
 </c:when>
+</c:choose> 
+<c:choose>
+<c:when test="${IfPaymentClicked}">
+<c:import url="/WEB-INF/views/Payment.jsp"></c:import>
+</c:when>
 </c:choose>  
   
 <%-- <c:choose>

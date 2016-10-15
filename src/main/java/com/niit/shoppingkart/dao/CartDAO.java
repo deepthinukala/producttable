@@ -6,18 +6,14 @@ import java.util.List;
 import com.niit.shoppingkart.model.Cart;
 
 public interface CartDAO {
-    public List<Cart> list();
-    public boolean save(Cart cart);
-	public boolean update(Cart cart); 
-	public boolean delete(Cart cart);
-	
-	public Cart get(int id);
-	
-	public Cart getproduct(int id);
-	/*public void pay(int userid);
-	public double CartPrice(int userid);
-	public long cartsize(int userid);*/
-	
-	
+	 public List<Cart> list();
+	 public boolean save(Cart cart);
+	 public boolean update(Cart cart); 
+	 public boolean delete(Cart cart); 
+	 public Cart get(int id); 
+	 public Cart getproduct(int id); 
+	 public long cartsize(int userId);
+	 public double CartPrice(int userId);
+	 public void pay(int userId);
 	
 }

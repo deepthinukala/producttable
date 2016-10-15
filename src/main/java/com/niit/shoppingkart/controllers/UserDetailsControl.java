@@ -58,7 +58,7 @@ public class UserDetailsControl {
        {
         session.setAttribute("UserLoggedIn", "true");
         //session.setAttribute("cartsize",CartDAO.getcartsize((int) session.getAttribute("userid")));
-        return "userlogin";
+        return "Home";
        }
        else 
        {
@@ -66,17 +66,17 @@ public class UserDetailsControl {
     return "/admin";
        }
  }
-  return "/Home";
+  return "/";
  
  }
  
- /*@RequestMapping(value="/LOGINERROR")
+ @RequestMapping(value="/LOGINERROR")
  public String errorpage(RedirectAttributes attributes){
   attributes.addFlashAttribute("error", "The Username or Password you entered is incorrect please try again");
   return "redirect:/Login";
  }
 
-*/
+
   
   
   

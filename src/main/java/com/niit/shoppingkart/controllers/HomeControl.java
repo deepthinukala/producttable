@@ -44,7 +44,7 @@ public String navproduct(Model m,@PathVariable("id") int id ){
 	m.addAttribute("navproducts", productDAO.navproduct(id));
 	return "catproducts";
 }
-/*@RequestMapping(value={"/userlogin"},method=RequestMethod.GET)
+@RequestMapping(value={"/userlogin"},method=RequestMethod.GET)
 public String userpage(Model m){
 	m.addAttribute("userclickedhome", "true");
 	m.addAttribute("product",new Product());
@@ -52,6 +52,6 @@ public String userpage(Model m){
 	m.addAttribute("allData",productDAO.list());
 	
 	return "userlogin";
-}*/
+}
 
 }
