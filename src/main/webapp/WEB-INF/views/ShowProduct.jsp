@@ -45,7 +45,7 @@
     </ul>
   
   <ul class="nav navbar-nav navbar-left">
-<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Contacts</a></li>
+ <li><a href="contact"><span class="glyphicon glyphicon-log-in"></span> Contacts</a></li>
 </ul>
 
 	 <form class="navbar-form navbar-left" role="search">
@@ -90,4 +90,5 @@
 				</div>
 </c:forEach>
 </body>
+<%@include file="Common-Footer.jsp"%>
 </html>

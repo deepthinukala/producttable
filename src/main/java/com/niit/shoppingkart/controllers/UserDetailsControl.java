@@ -58,7 +58,7 @@ public class UserDetailsControl {
        {
         session.setAttribute("UserLoggedIn", "true");
         //session.setAttribute("cartsize",CartDAO.getcartsize((int) session.getAttribute("userid")));
-        return "Home";
+        return "redirect:/Home";
        }
        else 
        {
@@ -72,7 +72,7 @@ public class UserDetailsControl {
  
  @RequestMapping(value="/LOGINERROR")
  public String errorpage(RedirectAttributes attributes){
-  attributes.addFlashAttribute("error", "The Username or Password you entered is incorrect please try again");
+ attributes.addFlashAttribute("error", "The Username or Password you entered is incorrect please try again");
   return "redirect:/Login";
  }
 
@@ -109,4 +109,17 @@ public class UserDetailsControl {
   mv.addAttribute("message", "Registration Success");
   return "redirect:/Home";
  }
+ 
+ @RequestMapping(value = "contact")
+	public String Displaycontact(Model mv) {
+		mv.addAttribute("UserClickedContact", "true");
+		return "contact";
+	}
+	
+	@RequestMapping(value = "About")
+	public String Displayabout(Model mv) {
+		mv.addAttribute("UserClickedAbout", "true");
+		return "About";
+	}
+ 
 }

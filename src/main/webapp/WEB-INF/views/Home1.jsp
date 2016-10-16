@@ -1,8 +1,7 @@
- <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%-- <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
-
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,32 +47,114 @@
    
     <ul class="nav navbar-nav navbar-right">
       <li><a href="Home"><span class="glyphicon glyphicon-user"></span> Home</a></li>
-      <sec:authorize access="!isAuthenticated()">
-      <li><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      <li><a href="Registration"><span class="glyphicon glyphicon-log-in"></span> Registration</a></li>
-     </sec:authorize>
-    <!--   <li><a href="About"><span class="glyphicon glyphicon-log-in"></span> AboutUs</a></li> -->
-  <sec:authorize access="isAuthenticated()">
-   <li ><a href="Cart1" ><p>CART <span class="glyphicon glyphicon-shopping-cart"></span></p></a></li>
-     <li><a href=<c:url value="perform_logout"/>>Logout</a></li>
-    <li><a href="">WELCOME<sec:authentication property="principal.username"/></a></li>
-</sec:authorize>
+      <li><a href="#" data-toggle="modal" data-target="#basiccModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	  <div class="modal fade" id="basiccModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Login Here</h4>
+            </div>
+            <div class="modal-body">
+            <form action="perform_login" method="POST">
+	username<input type="text" name="username">
+	password<input type="password" name="password">
+	<input type="submit" value="login">
+	</form>
+	</div>
+	</div>
+	</div></div>
+	
+ <div class="modal fade" id="basiccModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Registration</h4>
+            </div>
+            <div class="modal-body">
+            <div class="container">
+ 
+ 
+ <c:choose>
+    <c:when test="${!empty SuccessMessage}">
+     <td colspan="2">
+      <div class="alert alert-success fade in">
+       <a href="login" class="close" data-dismiss="alert" aria-label="close">&times;</a>${SuccessMessage}
+      </div>
+     </td>
+    </c:when>
+   </c:choose>
+ 
+ 
+ 
+ <section id="content">
+   <c:url var="addAction" value="adduser"></c:url>
+   <form:form action="${addAction}" commandName="user"
+    method="post">
+    <h4>Registration</h4>
+    <div>
+     <form:input path="userid" type="text" placeholder="userid"
+       required="true" id="userid" name="userid" />
+    </div>
+    <div>
+     <form:input path="username" type="text" placeholder="Username"
+     pattern=".{5,10}" required="true" id="username" name="username"
+     title="minimum length for username is 5" />
+    </div>
+    <div>
+     <form:input path="password" type="password" placeholder="Password" pattern=".{3,8}"
+      required="true" id="password" name="password" title="minimum length for passsword is 3" />
+    </div>
+    
+    <div>
+     <form:input path="contact" type="text" placeholder="contact"
+      pattern="^[789]\d{9}$" required="true" id="contact"
+      name="contact" title="Enter valid contact number" />
+    </div>
+    <div>
+     <form:input path="email" type="email" placeholder="Email"
+      required="true" id="email" name="email" />
+    </div>
+    
+     <div>
+     <form:input path="address" type="address" placeholder="address"
+      required="true" id="address" name="address" />
+    </div>
+    <div>
+     <input type="submit" value="Register" /><a href="Login">Sign In</a>
+    </div>
+
+   </form:form>
+   
+  </section>
+  
+ </div>
+ </div></div></div></div></div> 
+            
+    
+    
+
+          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> AboutUs</a></li>
+     
     </ul>
   
   <ul class="nav navbar-nav navbar-left">
- <!-- <li><a href="contact"><span class="glyphicon glyphicon-log-in"></span> Contacts</a></li> -->
+<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Contacts</a></li>
 </ul>
-  <form class="navbar-form navbar-left" role="search"> 
+
+	 <form class="navbar-form navbar-left" role="search">
     <div class="form-group">
-        <!-- <input type="text" class="form-control" placeholder="Search">
+        <input type="text" class="form-control" placeholder="Search">
     <button type="submit" class="btn btn-default">Submit</button>
-	</div> -->
+	</div>
 	
-	<!-- <li class="dropdown"><a class="dropdown-toggle"
+						
+			<!-- <li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"><span
 					class="glyphicon glyphicon-th" align="right"></span></a>
-	<ul class="dropdown-menu"> -->
-
+				<ul class="dropdown-menu"> -->
+	
 	<div class="dropdown">
     <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">click here
     <span class="caret"></span></button>
@@ -88,7 +169,9 @@
 					</c:forEach>
 				</li>
 				</ul>
-	</div></nav>
+	</div>
+	</form>
+	</nav>
   
  <div class="gap">
 <div class="container">
@@ -137,7 +220,7 @@
  <br>
  
 	
-   <%--  <c:forEach items="${allData}" var="product">
+   <c:forEach items="${allData}" var="product">
   <!--  <div class="row"> -->
      <div class="col-xs-3" class="thumbnail">
        
@@ -145,32 +228,15 @@
  src="<c:url value="/resources/images/product/${product.id }.jpg"></c:url>"></a>
   <div class="desc">
          Product Id : <c:out value="${product.id}" /><br>
-         Product Name : <c:out value="${product.name }"/><br>
+         Product Name : <c:out value="${product.name }"/>
    <c:url var="Addaction" value="addtocart/${product.id}"></c:url>
    <form:form action="${Addaction}" commandName="cart">
    <input type="submit" class="btn btn-primary" value="Add To Cart" />
    </form:form>
        </div>
-       </div> </c:forEach>  --%>
-        <c:forEach items="${allData}" var="product">
-		<!--  <div class="row"> -->
-     <div class="col-xs-3" class="thumbnail">
- 	 			 
-	<a href="ShowProduct/${product.id}" > <img height="200px" width="200px" alt="${product.id }"
-	src="<c:url value="/resources/images/product/${product.id }.jpg"></c:url>"></a>
-  <div class="desc">
-         Product Id : <c:out value="${product.id}" /><br>
-         Product Name : <c:out value="${product.name }"/><br>
-         
-   <c:url var="action" value="addtocart/${product.id}"></c:url>
-   <form:form action="${action}" commandName="cart">
-   <input type="submit" class="btn btn-primary" value="Add To Cart" />
-   </form:form>
-  
-							</div>
-							</div>	
-							</c:forEach> 
-    
+       </div> 
+      
+      
 	
 		
 	<div ng-view></div>
@@ -188,7 +254,7 @@
 	
 	
 	
-
+</c:forEach>
 	
 <c:choose>
 <c:when test="${Clickedshowproduct}">
@@ -199,10 +265,10 @@
 <c:import url="/WEB-INF/views/catproducts.jsp"></c:import>
 </c:when></c:choose>
 <c:choose>
-<c:when test="${UserClickedCart}">
-<c:import url="/WEB-INF/views/Cart1.jsp"></c:import>
-</c:when></c:choose>
-<c:choose>
+	<c:when test="${UserClickedCart}">
+	<c:import url="/WEB-INF/views/Cart1.jsp"></c:import>
+	</c:when></c:choose>
+	<c:choose>
 <c:when test="${UserClickedlogin}">
 <c:import url="/WEB-INF/views/Login.jsp"></c:import>
 </c:when>
@@ -211,33 +277,14 @@
 <c:when test="${UserClickedregister}">
 <c:import url="/WEB-INF/views/Registration.jsp"></c:import>
 </c:when>
-</c:choose> 
+</c:choose>  
+  
 <c:choose>
-<c:when test="${IfPaymentClicked}">
-<c:import url="/WEB-INF/views/Payment.jsp"></c:import>
-</c:when>
-</c:choose>
-<c:choose>  
-<c:when test="${UserClickedAbout}">
-<c:import url="/WEB-INF/views/About.jsp"></c:import>
-</c:when>
-</c:choose> 
-<c:choose>
-<c:when test="${UserClickedContact}">
-<c:import url="/WEB-INF/views/contact.jsp"></c:import>
-</c:when>
-</c:choose> 
-
- 
-<%-- <c:choose>
 		<c:when test="${!Administrator}">
 			<c:if test="${empty HideOthers}">
 			</c:if>
 			</c:when>
-			</c:choose> --%>
-
+			</c:choose>
+<div class="container">
 </body>
-<%@include file="Common-Footer.jsp"%>
-</html>
-
-    
+</html> --%>

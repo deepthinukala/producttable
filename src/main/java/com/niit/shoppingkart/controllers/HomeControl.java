@@ -21,7 +21,7 @@ public class HomeControl {
 	@Autowired
 	CategoryDAO categoryDAO;
 	
-@RequestMapping(value={"/Home"},method=RequestMethod.GET)
+@RequestMapping(value={"/","Home"},method=RequestMethod.GET)
 public String homepage(Model m){
 	m.addAttribute("userclickedhome", "true");
 	m.addAttribute("product",new Product());
@@ -44,14 +44,6 @@ public String navproduct(Model m,@PathVariable("id") int id ){
 	m.addAttribute("navproducts", productDAO.navproduct(id));
 	return "catproducts";
 }
-@RequestMapping(value={"/userlogin"},method=RequestMethod.GET)
-public String userpage(Model m){
-	m.addAttribute("userclickedhome", "true");
-	m.addAttribute("product",new Product());
-	m.addAttribute("allInfo", categoryDAO.list());
-	m.addAttribute("allData",productDAO.list());
-	
-	return "userlogin";
-}
+
 
 }

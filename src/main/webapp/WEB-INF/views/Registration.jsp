@@ -14,6 +14,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
+   <style>
+   body{background-image:url("http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=1769775 ");
+    background-repeat: no-repeat;
+    background-position: left bottom;} 
+    </style>
 </head>
 <body>
 <h1><img src="C:\Users\lakshmideepthi\Desktop\my website\logo.png" alt="Test Image" width="200" height="200" style="margin:-60px 0px 0px 5px" align="left"></h1>
@@ -39,9 +44,14 @@
      
     </ul>
   
-  <ul class="nav navbar-nav navbar-left">
+  <%-- <ul class="nav navbar-nav navbar-left">
 <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Contacts</a></li>
 </ul>
+<form class="navbar-form navbar-left" role="search"> 
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+    <button type="submit" class="btn btn-default">Submit</button>
+	</div></form> --%>
 </div></nav>
  
  <div class="container">
@@ -54,10 +64,89 @@
      </td>
     </c:when>
    </c:choose>
- 
- 
- 
  <section id="content">
+			<c:url var="addAction" value="adduser"></c:url>
+			<form:form action="${addAction}" commandName="user"
+				method="post">
+<form class="form-horizontal">
+ <div class="row centered-form">
+        <div class="col-xs-8 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+        	<div class="panel panel-default">
+        		<div class="panel-heading">
+			    		<h3 class="panel-title" style="text-align:center;">Registration Form</h3>
+			 			</div>
+			 			<div class="panel-body">
+			    		<%-- <form role="form"> --%>
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="username">User name</label>  
+  <div class="col-md-6">
+  <form:input id="username" name="username" type="text" placeholder="user name" class="form-control input-md" 
+  path="username" pattern=".{5,10}" required="true" title="minimum length for username is 5" />
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="password">Password</label>  
+  <div class="col-md-6">
+  <form:input id="password" name="password" type="password" placeholder="Password" class="form-control input-md" 
+  path="password"  pattern=".{3,8}" required="true" title="minimum length for passsword is 3"/>
+    
+  </div>
+</div>
+
+
+
+
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="email">Email</label>  
+  <div class="col-md-6">
+  <form:input id="email" name="email" type="text" placeholder="email address" class="form-control input-md" path="email"/>
+    
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-4 control-label" for="email">Address</label>  
+  <div class="col-md-6">
+  <form:input id="address" name="address" type="text" placeholder=" address" class="form-control input-md" path="address"/>
+    
+  </div>
+</div>
+
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="contact">Phone Number</label>  
+  <div class="col-md-6">
+  <form:input id="contact" name="contact" type="text" placeholder="Phone Number" class="form-control input-md" 
+  path="contact" pattern="^[789]\d{9}$" required="true" title="Enter valid mobile number"/>
+    
+  </div>
+</div>
+
+</div>
+
+<div class="form-group">
+<div class="col-xs-8 col-sm-6 col-md-4 col-sm-offset-2 col-md-offset-4">
+<input type="submit" value="Register" class="btn btn-warning btn-block"><a href="Login"></a>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</form>
+</form:form>
+</section>
+ 
+ 
+ 
+<%--  <section id="content">
    <c:url var="addAction" value="adduser"></c:url>
    <form:form action="${addAction}" commandName="user"
     method="post">
@@ -111,9 +200,9 @@
 
    </form:form>
    
-  </section>
+  </section> --%>
   
  </div>
- 
-</body>
+ </body>
+ <%@include file="Common-Footer.jsp"%>
 </html>

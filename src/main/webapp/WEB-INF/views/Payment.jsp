@@ -28,6 +28,9 @@
   {
   margin:-25px 0px 0px 0px;
   }
+   body{background-image:url("http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=1769775 ");
+    background-repeat: no-repeat;
+    background-position: left bottom;} 
   </style>
 </head>
 <body>
@@ -53,7 +56,7 @@
     </ul>
   
   <ul class="nav navbar-nav navbar-left">
-<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Contacts</a></li>
+<!-- <li><a href="contact"><span class="glyphicon glyphicon-log-in"></span> Contacts</a></li -->>
 </ul>
 </nav>
 <body  style="padding-top: 75px">
@@ -113,7 +116,7 @@
        <div class="row">
         <div class="col-xs-12">
         
-         <button class="btn btn-success btn-sm btn-block" type="submit">Make Payment</button>  
+         <button class="btn btn-success btn-warning btn-block" type="submit">Make Payment</button>  
         
         </div>
        </div>
@@ -125,4 +128,5 @@
      
 </div> 
 </body>
+<%@include file="Common-Footer.jsp"%>
 </html>

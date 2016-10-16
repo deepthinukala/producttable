@@ -67,19 +67,19 @@ tr:hover{background-color:#f5f5f5}
     <div class="container-fluid">
     <div class="navbar-header"></div>
      <ul class="nav navbar-nav navbar-right">
- <li><a href="admin"><span class="glyphicon glyphicon-user"></span> Home</a></li>
+ <!-- <li><a href="admin"><span class="glyphicon glyphicon-user"></span> Home</a></li> -->
 <li><a href=<c:url value="perform_logout"/>>Logout</a></li>
      
-    </ul>
+   <%--  </ul>
      <ul class="nav navbar-nav navbar-left">
-       <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Contacts</a></li>
+     <li><a href="contact"><span class="glyphicon glyphicon-log-in"></span> Contacts</a></li>
      </ul>
 	 <form class="navbar-form navbar-left" role="search">
        <div class="form-group">
        <input type="text" class="form-control" placeholder="Search">
        <button type="submit" class="btn btn-default">Submit</button>
 	   </div>
-	 </form>
+	 </form> --%>
 </nav>
 <div class="gap">
  <nav class="navbar navbar-default"style="background-color:orange">
@@ -205,4 +205,5 @@ tr:hover{background-color:#f5f5f5}
   <script src="${pageContext.request.contextPath}/app-resources/js/myapp.js"></script>
   <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/app-resources/css/style.css"/>
 </body>
+<%@include file="Common-Footer.jsp"%>
 </html> 
