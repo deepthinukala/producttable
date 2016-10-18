@@ -103,7 +103,7 @@ tr:hover{background-color:#f5f5f5}
 		       Add New Item
 	            </c:if>
 	            <c:if test="${!empty category.id}">
-		      Update Item for Id: <c:out value="${category.id}"/>
+		    <%--   Update Item for Id: <c:out value="${category.id}"/> --%>
 		      <form:hidden path="id"/>
 	            </c:if>
          </h3>

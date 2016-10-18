@@ -55,9 +55,7 @@
      
     </ul>
   
-  <ul class="nav navbar-nav navbar-left">
-<!-- <li><a href="contact"><span class="glyphicon glyphicon-log-in"></span> Contacts</a></li -->>
-</ul>
+ 
 </nav>
 <body  style="padding-top: 75px">
 

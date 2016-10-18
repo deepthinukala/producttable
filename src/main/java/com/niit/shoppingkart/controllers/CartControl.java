@@ -104,7 +104,8 @@ public class CartControl {
 	 @RequestMapping("pay")
 	 public String payment(HttpSession session) {
 	  cartDAO.pay((Integer) session.getAttribute("userid"));
-	return "Home";
+	  session.setAttribute("message", "PaymentSuccess");
+	return "Thankyou";
 	 }
 	}
 	

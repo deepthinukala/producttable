@@ -77,12 +77,7 @@ public class UserDetailsControl {
  }
 
 
-  
-  
-  
-  
- 
- /*@RequestMapping(value = "/LoginSuccess")*/
+  /*@RequestMapping(value = "/LoginSuccess")*/
  /*@RequestMapping(value = "/login_session_attributes")
  public String Display(Model mv) {
 	 mv.addAttribute("product",new Product());
@@ -102,12 +97,12 @@ public class UserDetailsControl {
  }
 
  @RequestMapping(value = "adduser", method = RequestMethod.POST)
- public String UserRegister(@ModelAttribute("user") UserDetails userdetails, Model mv) {
+ public String UserRegister(@ModelAttribute("user") UserDetails userdetails, Model mv,RedirectAttributes attributes) {
   userdetails.setEnabled(true);
   userdetails.setRole("ROLE_USER");
   userDAO.saveorUpdate(userdetails);
-  mv.addAttribute("message", "Registration Success");
-  return "redirect:/Home";
+  attributes.addFlashAttribute("SuccessMessage","Registration Successfull");
+  return "redirect:/Registration";
  }
  
  @RequestMapping(value = "contact")

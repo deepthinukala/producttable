@@ -1,4 +1,4 @@
- <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
@@ -48,7 +48,7 @@
    
     <ul class="nav navbar-nav navbar-right">
       <li><a href="Home"><span class="glyphicon glyphicon-user"></span> Home</a></li>
-      <sec:authorize access="!isAuthenticated()">
+       <sec:authorize access="!isAuthenticated()">
       <li><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       <li><a href="Registration"><span class="glyphicon glyphicon-log-in"></span> Registration</a></li>
      </sec:authorize>
@@ -57,10 +57,11 @@
    <li ><a href="Cart1" ><p>CART <span class="glyphicon glyphicon-shopping-cart"></span></p></a></li>
      <li><a href=<c:url value="perform_logout"/>>Logout</a></li>
     <li><a href="">WELCOME<sec:authentication property="principal.username"/></a></li>
-</sec:authorize>
-    </ul>
-  
-  <ul class="nav navbar-nav navbar-left">
+</sec:authorize> 
+
+ </ul>
+    
+   <ul class="nav navbar-nav navbar-left">
  <!-- <li><a href="contact"><span class="glyphicon glyphicon-log-in"></span> Contacts</a></li> -->
 </ul>
   <form class="navbar-form navbar-left" role="search"> 
@@ -137,23 +138,9 @@
  <br>
  
 	
-   <%--  <c:forEach items="${allData}" var="product">
+    <c:forEach items="${allData}" var="product">
   <!--  <div class="row"> -->
-     <div class="col-xs-3" class="thumbnail">
-       
- <a href="ShowProduct/${product.id}" > <img height="250px" width="250px" alt="${product.id }"
- src="<c:url value="/resources/images/product/${product.id }.jpg"></c:url>"></a>
-  <div class="desc">
-         Product Id : <c:out value="${product.id}" /><br>
-         Product Name : <c:out value="${product.name }"/><br>
-   <c:url var="Addaction" value="addtocart/${product.id}"></c:url>
-   <form:form action="${Addaction}" commandName="cart">
-   <input type="submit" class="btn btn-primary" value="Add To Cart" />
-   </form:form>
-       </div>
-       </div> </c:forEach>  --%>
-        <c:forEach items="${allData}" var="product">
-		<!--  <div class="row"> -->
+   
      <div class="col-xs-3" class="thumbnail">
  	 			 
 	<a href="ShowProduct/${product.id}" > <img height="200px" width="200px" alt="${product.id }"
@@ -229,15 +216,15 @@
 </c:choose> 
 
  
-<%-- <c:choose>
+<c:choose>
 		<c:when test="${!Administrator}">
 			<c:if test="${empty HideOthers}">
 			</c:if>
 			</c:when>
-			</c:choose> --%>
+			</c:choose>
 
 </body>
 <%@include file="Common-Footer.jsp"%>
 </html>
 
-    
+ 

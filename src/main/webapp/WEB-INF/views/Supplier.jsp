@@ -72,7 +72,7 @@ tr:hover{background-color:#f5f5f5}
 <li><a href=<c:url value="perform_logout"/>>Logout</a></li>
      
     </ul>
-     <ul class="nav navbar-nav navbar-left">
+     <%-- <ul class="nav navbar-nav navbar-left">
      <li><a href="contact"><span class="glyphicon glyphicon-log-in"></span> Contacts</a></li>
      </ul>
 	 <form class="navbar-form navbar-left" role="search">
@@ -80,7 +80,7 @@ tr:hover{background-color:#f5f5f5}
        <input type="text" class="form-control" placeholder="Search">
        <button type="submit" class="btn btn-default">Submit</button>
 	   </div>
-	 </form>
+	 </form> --%>
 </nav>
 <div class="gap">
  <nav class="navbar navbar-default"style="background-color:orange">
@@ -103,7 +103,7 @@ tr:hover{background-color:#f5f5f5}
 		       Add New Item
 	            </c:if>
 	            <c:if test="${!empty supplier.id}">
-		       Update Item for Id: <c:out value="${supplier.id}"/>
+		      <%--  Update Item for Id: <c:out value="${supplier.id}"/> --%>
 		     <%--  <form:hidden path="id"/> --%>
 	            </c:if>
          </h3>

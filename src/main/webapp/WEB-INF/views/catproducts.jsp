@@ -36,11 +36,11 @@
       <a class="navbar-brand" href="#"></a></div>
    
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="Home"><span class="glyphicon glyphicon-user"></span> Home</a></li>
+    <!--   <li><a href="Home"><span class="glyphicon glyphicon-user"></span> Home</a></li>
       <li><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 	  <li><a href="Registration"><span class="glyphicon glyphicon-log-in"></span> Registration</a></li>
       <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> AboutUs</a></li>
-     
+      -->
     </ul>
   
   <%-- <ul class="nav navbar-nav navbar-left">

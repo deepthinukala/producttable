@@ -40,7 +40,7 @@
     <li><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
      
      
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> AboutUs</a></li>
+    <!--   <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> AboutUs</a></li> -->
      
     </ul>
   
@@ -64,6 +64,8 @@
      </td>
     </c:when>
    </c:choose>
+   </div>
+   
  <section id="content">
 			<c:url var="addAction" value="adduser"></c:url>
 			<form:form action="${addAction}" commandName="user"
@@ -143,6 +145,17 @@
 </form>
 </form:form>
 </section>
+
+ <div class="container">
+ <c:choose>
+    <c:when test="${!empty message}">
+     <td colspan="2">
+      <div class="alert alert-success fade in">
+       <a href="login" class="close" data-dismiss="alert" aria-label="close">&times;</a>${SuccessMessage}
+      </div>
+     </td>
+    </c:when>
+   </c:choose>
  
  
  

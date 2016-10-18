@@ -38,7 +38,7 @@
     <ul class="nav navbar-nav navbar-right">
       <li><a href="Home"><span class="glyphicon glyphicon-user"></span> Home</a></li>
      <li><a href="Registration"><span class="glyphicon glyphicon-log-in"></span> Registration</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> AboutUs</a></li>
+     <!--  <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> AboutUs</a></li> -->
      
     </ul>
   
@@ -51,6 +51,17 @@
     <button type="submit" class="btn btn-default">Submit</button>
 	</div></form> --%>
 </div></nav>
+<div class="container">
+ <c:choose>
+    <c:when test="${!empty error}">
+     <td colspan="2">
+      <div class="alert alert-success fade in">
+       <a href="login" class="close" data-dismiss="alert" aria-label="close">&times;</a>${error}
+      </div>
+     </td>
+    </c:when>
+   </c:choose>
+   </div>
 
 
 	<div class="container">
@@ -91,7 +102,7 @@
 				
 				<div class="form-group">
 <div class="col-xs-8 col-sm-6 col-md-4 col-sm-offset-2 col-md-offset-4">
-<a href="Registration"> register here?</a>
+<a href="Registration"> Create Account</a>
 <p></p>
 <input type="submit" value="Login" class="btn btn-warning btn-block">
 </div>

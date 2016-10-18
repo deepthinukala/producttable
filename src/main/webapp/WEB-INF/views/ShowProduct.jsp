@@ -37,14 +37,13 @@
       <a class="navbar-brand" href="#"></a></div>
    
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="basic login.html"><span class="glyphicon glyphicon-user"></span> Home</a></li>
-      <li><a href="loginname.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-	  <li><a href="registername"><span class="glyphicon glyphicon-log-in"></span> Register</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> AboutUs</a></li>
-     
+      <li><a href="Home"><span class="glyphicon glyphicon-user"></span> Home</a></li>
+      <!-- <li><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	  <li><a href="Registration"><span class="glyphicon glyphicon-log-in"></span> Registration</a></li>
+      -->
     </ul>
   
-  <ul class="nav navbar-nav navbar-left">
+ <%--  <ul class="nav navbar-nav navbar-left">
  <li><a href="contact"><span class="glyphicon glyphicon-log-in"></span> Contacts</a></li>
 </ul>
 
@@ -52,7 +51,7 @@
     <div class="form-group">
         <input type="text" class="form-control" placeholder="Search">
     <button type="submit" class="btn btn-default">Submit</button>
-	</div>
+	</div> --%>
 	
 	<%-- <div class="dropdown">
     <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">click here

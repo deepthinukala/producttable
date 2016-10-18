@@ -171,7 +171,7 @@ tr:hover{background-color:#f5f5f5}
         </div>
         <c:if test="${empty EmptyCart}">
         <div class="col-xs-6">
-         <h4 class="text-right">Total : Rs ${CartPrice}</h4>
+         <h4 class="text-right">${CartPrice}</h4>
         </div>
          <form action="placeorder">
 
