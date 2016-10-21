@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<footer>
+ <footer>
 <div style="background-color:white">
 
 <p align="center">Copyright © 2016 GadShop.Com All Rights Reserved.</p>
@@ -17,7 +17,6 @@
 <p align="center"> Save Money | Deals | Offers | Steal Deals | Season Offers | Season Deals | Festive Offers | Festive Deals | Deal of the Day | Free Coupons | Cheap Coupon Deals | Free Mall | Online | Shopping | Bazaar | Online Deals | Top Deals </p>
 </div>
 </footer>
+
 </body>
-
-
 </html>

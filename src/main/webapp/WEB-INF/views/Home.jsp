@@ -138,9 +138,8 @@
  <br>
  
 	
-    <c:forEach items="${allData}" var="product">
-  <!--  <div class="row"> -->
-   
+   <c:forEach items="${allData}" var="product">
+		<!--  <div class="row"> -->
      <div class="col-xs-3" class="thumbnail">
  	 			 
 	<a href="ShowProduct/${product.id}" > <img height="200px" width="200px" alt="${product.id }"
@@ -216,15 +215,13 @@
 </c:choose> 
 
  
-<c:choose>
+<%-- <c:choose>
 		<c:when test="${!Administrator}">
 			<c:if test="${empty HideOthers}">
 			</c:if>
 			</c:when>
-			</c:choose>
+			</c:choose> --%>
 
 </body>
 <%@include file="Common-Footer.jsp"%>
 </html>
-
- 

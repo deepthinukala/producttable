@@ -45,7 +45,6 @@ th {
 footer{
 margin-top:50px;
 }
-
 tr:hover{background-color:#f5f5f5}
  th {background-color: black;
     color: white;
@@ -94,7 +93,6 @@ tr:hover{background-color:#f5f5f5}
         <div class="col-xs-2 text-right">
          <label class="form-control input-sm"> Total Price</label>
         </div>
-
         <div class="col-xs-4">
          <div class="col-xs-6">
           <label class="form-control input-sm">Quantity</label>
@@ -176,8 +174,8 @@ tr:hover{background-color:#f5f5f5}
          <form action="placeorder">
 
           <div class="col-xs-3">
-           <button type="submit" class="btn btn-success btn-block">
-            Checkout</button>
+           <a href="checkoutFlow" type="submit" class="btn btn-success btn-block">
+            Checkout</a>
           </div>
 
          </form>
